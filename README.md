@@ -12,16 +12,18 @@ However, this isn't just an up-to-date version of the original plugin, in the fu
 ### Groovy
 ```groovy
 plugins {
-  id "io.github.simulatan.buildinfo" version "1.0.0"
+  id "io.github.simulatan.gradle-buildinfo-plugin" version "v1.0.0"
 }
 ```
 
 ### Kotlin
 ```kotlin
 plugins {
-  id("io.github.simulatan.buildinfo") version "1.0.0"
+  id("io.github.simulatan.gradle-buildinfo-plugin") version "v1.0.0"
 }
 ```
+
+*find the latest version [on the gradle plugin portal](https://plugins.gradle.org/plugin/io.github.simulatan.gradle-buildinfo-plugin/)*
 
 ### Tasks
 The plugin adds a `buildInfo` task to your project. This task is automatically added as a dependency to the `jar` task.

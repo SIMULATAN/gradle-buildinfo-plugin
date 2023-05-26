@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "io.github.simulatan"
-version = "1.0.0"
+version = "v1.0.0"
 
 repositories {
     mavenCentral()
@@ -23,6 +23,9 @@ gradlePlugin {
             displayName = "BuildInfo Plugin"
             description = "Bakes in build info at compile time"
             implementationClass = "io.github.simulatan.gradle.plugin.buildinfo.BuildInfoPlugin"
+            website.set("https://github.com/SIMULATAN/gradle-buildinfo-plugin")
+            vcsUrl.set("https://github.com/SIMULATAN/gradle-buildinfo-plugin.git")
+            tags.set(listOf("buildinfo", "metadata", "build"))
         }
     }
 }
