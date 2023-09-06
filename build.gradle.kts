@@ -1,12 +1,25 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     id("com.gradle.plugin-publish") version "1.1.0"
     `java-gradle-plugin`
-    id("org.jetbrains.kotlin.jvm") version "1.8.21"
+    id("org.jetbrains.kotlin.jvm") version "1.9.10"
     `java-library`
 }
 
 group = "io.github.simulatan"
-version = "v1.0.0"
+version = "1.0.1"
+
+java {
+    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_1_8)
+    }
+}
 
 repositories {
     mavenCentral()
