@@ -1,4 +1,4 @@
-package io.github.simulatan.gradle.plugin.buildinfo
+package io.github.simulatan.gradle.plugin.buildinfo.configuration
 
 import org.gradle.api.Project
 
@@ -28,9 +28,19 @@ open class BuildInfoExtension(project: Project) {
 		const val MODE_ERROR = 2
 	}
 
+	var enabled: Boolean = true
+	/**
+	 * Whether to write the properties as a manifest to the classes directory.
+	 * This leads to the manifest being included in the jar file.
+	 */
+	var writeManifest = true
+	/**
+	 * Specifies where to write the properties to.
+	 * Set to an empty list to disable properties output.
+	 */
+	var propertiesOutputs = emptyList<PropertiesOutputLocation>()
 	var committerDateFormat: String = DEFAULT_DATE_FORMAT
 	var buildDateFormat: String = DEFAULT_DATE_FORMAT
-	var manifestEnabled: Boolean = true
 	var gitInfoMode: Int = MODE_DEFAULT
 	var warnIfGitDirectoryIsMissing: Boolean = true
 	var attributeGitBranchEnabled: Boolean = true

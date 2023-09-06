@@ -1,5 +1,6 @@
 package io.github.simulatan.gradle.plugin.buildinfo
 
+import io.github.simulatan.gradle.plugin.buildinfo.configuration.BuildInfoExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
