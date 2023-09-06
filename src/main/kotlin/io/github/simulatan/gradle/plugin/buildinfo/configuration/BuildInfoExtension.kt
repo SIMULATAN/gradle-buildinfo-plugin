@@ -51,4 +51,18 @@ open class BuildInfoExtension(project: Project) {
 	var attributeBuildJavaVendorEnabled: Boolean = true
 	var attributeBuildOsNameEnabled: Boolean = true
 	var attributeBuildOsVersionEnabled: Boolean = true
+
+	val extraAttributes = mutableMapOf<String, Any>()
+
+	fun extraAttribute(key: String, value: Any) {
+		this.extraAttributes[key] = value
+	}
+
+	fun extraAttributes(attributes: Map<String, Any>) {
+		this.extraAttributes.putAll(attributes)
+	}
+
+	fun extraAttributes(vararg attributes: Pair<String, Any>) {
+		this.extraAttributes.putAll(attributes)
+	}
 }

@@ -69,7 +69,7 @@ open class BuildInfoTask : DefaultTask() {
 	}
 
 	private fun getAttributes(): Map<String, Any> = extension.run {
-		val attributes = mutableMapOf<String, Any>()
+		val attributes = extension.extraAttributes
 
 		if (gitInfo.missing && extension.warnIfGitDirectoryIsMissing)
 			logger.warn("Could not read .git directory. Git info will not be included in the manifest or will be replaced to invalid values.")
