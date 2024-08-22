@@ -23,6 +23,14 @@ open class BuildInfoTask : DefaultTask() {
 	init {
 		inputs.property("valid", gitInfo.valid)
 		inputs.property("commit", gitInfo.commit)
+
+		// never up to date
+		outputs.upToDateWhen { false }
+		outputs.files(
+			extension.propertiesOutputs.flatMap { locationGetter ->
+				locationGetter(project)
+			}
+		)
 	}
 
 	@TaskAction
@@ -75,17 +83,20 @@ open class BuildInfoTask : DefaultTask() {
 			logger.warn("Could not read .git directory. Git info will not be included in the manifest or will be replaced to invalid values.")
 
 		if (gitInfo.valid) {
-			if (attributeGitBranchEnabled) attributes["Git-Branch"] = gitInfo.branch
-			if (attributeGitCommitEnabled) attributes["Git-Commit"] = gitInfo.commit
-			if (attributeGitCommitterDateEnabled) attributes["Git-Committer-Date"] = gitInfo.committerDate
+			if (attributeGitBranchEnabled) attributes[StandardAttributes.Git.BRANCH] = gitInfo.branch
+			if (attributeGitCommitEnabled) attributes[StandardAttributes.Git.COMMIT] = gitInfo.commit
+			if (attributeGitCommitterDateEnabled) {
+				attributes[StandardAttributes.Git.COMMIT_DATE] = gitInfo.commitDate
+				attributes[StandardAttributes.Git.COMMITER_DATE] = gitInfo.commitDate
+			}
 		}
 
-		if (attributeBuildDateEnabled) attributes["Build-Date"] = LocalDateTime.now().atZone(ZoneId.systemDefault())
+		if (attributeBuildDateEnabled) attributes[StandardAttributes.Build.DATE] = LocalDateTime.now().atZone(ZoneId.systemDefault())
 			.format(DateTimeFormatter.ofPattern(buildDateFormat))
-		if (attributeBuildJavaVersionEnabled) attributes["Build-Java-Version"] = System.getProperty("java.version")
-		if (attributeBuildJavaVendorEnabled) attributes["Build-Java-Vendor"] = System.getProperty("java.vendor")
-		if (attributeBuildOsNameEnabled) attributes["Build-Os-Name"] = System.getProperty("os.name")
-		if (attributeBuildOsVersionEnabled) attributes["Build-Os-Version"] = System.getProperty("os.version")
+		if (attributeBuildJavaVersionEnabled) attributes[StandardAttributes.Build.JAVA_VERSION] = System.getProperty("java.version")
+		if (attributeBuildJavaVendorEnabled) attributes[StandardAttributes.Build.JAVA_VENDOR] = System.getProperty("java.vendor")
+		if (attributeBuildOsNameEnabled) attributes[StandardAttributes.Build.OS_NAME] = System.getProperty("os.name")
+		if (attributeBuildOsVersionEnabled) attributes[StandardAttributes.Build.OS_VERSION] = System.getProperty("os.version")
 
 		return attributes
 	}

@@ -11,8 +11,8 @@ data class GitInfo(
 	val missing: Boolean,
 	val valid: Boolean,
 	val commit: String,
+	val commitDate: String,
 	val branch: String,
-	val committerDate: String
 ) {
 	companion object {
 		private val LOGGER = Logging.getLogger(GitInfo::class.java)
@@ -42,9 +42,9 @@ data class GitInfo(
 			return GitInfo(
 				missing = missing,
 				valid = valid,
-				branch = branch,
 				commit = commitName,
-				committerDate = committerDate
+				commitDate = committerDate,
+				branch = branch,
 			)
 		}
 	}

@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.github.simulatan"
-version = "2.1.0"
+version = "2.2.0"
 
 java {
     targetCompatibility = JavaVersion.VERSION_1_8
@@ -27,6 +27,7 @@ repositories {
 
 dependencies {
     implementation("com.github.sya-ri:kgit:1.0.5")
+    implementation(kotlin("gradle-plugin"))
 }
 
 gradlePlugin {
