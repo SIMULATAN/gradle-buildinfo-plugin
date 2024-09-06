@@ -18,7 +18,7 @@ open class BuildInfoTask : DefaultTask() {
 	}
 
 	private val extension: BuildInfoExtension = project.extensions.findByType(BuildInfoExtension::class.java)!!
-	private val gitInfo: GitInfo = GitInfo.readGitInfo(project, extension)
+	private val gitInfo: GitInfo = GitInfo.readGitInfo(extension)
 
 	init {
 		inputs.property("valid", gitInfo.valid)

@@ -2,7 +2,6 @@ package io.github.simulatan.gradle.plugin.buildinfo
 
 import io.github.simulatan.gradle.plugin.buildinfo.configuration.BuildInfoExtension
 import org.eclipse.jgit.api.Git
-import org.gradle.api.Project
 import org.gradle.api.logging.Logging
 import java.text.SimpleDateFormat
 import java.util.*
@@ -17,14 +16,14 @@ data class GitInfo(
 	companion object {
 		private val LOGGER = Logging.getLogger(GitInfo::class.java)
 
-		fun readGitInfo(project: Project, extension: BuildInfoExtension): GitInfo {
+		fun readGitInfo(extension: BuildInfoExtension): GitInfo {
 			var missing = false
 			var valid = true
 			var branch: String
 			var commitName: String
 			var committerDate: String
 			try {
-				val git = Git.open(project.projectDir)
+				val git = Git.open(extension.gitDirectory)
 				branch = git.repository.branch
 				val head = git.repository.findRef("HEAD")
 				val commit = git.repository.parseCommit(head.objectId)

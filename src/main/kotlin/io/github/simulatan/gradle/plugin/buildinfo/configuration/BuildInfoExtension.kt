@@ -1,6 +1,7 @@
 package io.github.simulatan.gradle.plugin.buildinfo.configuration
 
 import org.gradle.api.Project
+import java.io.File
 
 open class BuildInfoExtension(project: Project) {
 
@@ -43,6 +44,7 @@ open class BuildInfoExtension(project: Project) {
 	var buildDateFormat: String = DEFAULT_DATE_FORMAT
 	var gitInfoMode: Int = MODE_DEFAULT
 	var warnIfGitDirectoryIsMissing: Boolean = true
+	val gitDirectory: File = project.projectDir.resolve(".git")
 	var attributeGitBranchEnabled: Boolean = true
 	var attributeGitCommitEnabled: Boolean = true
 	var attributeGitCommitterDateEnabled: Boolean = true
