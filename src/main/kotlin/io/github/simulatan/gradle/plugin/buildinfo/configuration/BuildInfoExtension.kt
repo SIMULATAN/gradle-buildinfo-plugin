@@ -44,7 +44,7 @@ open class BuildInfoExtension(project: Project) {
 	var buildDateFormat: String = DEFAULT_DATE_FORMAT
 	var gitInfoMode: Int = MODE_DEFAULT
 	var warnIfGitDirectoryIsMissing: Boolean = true
-	val gitDirectory: File = project.projectDir.resolve(".git")
+	var gitDirectory: File = project.projectDir.resolve(".git")
 	var attributeGitBranchEnabled: Boolean = true
 	var attributeGitCommitEnabled: Boolean = true
 	var attributeGitCommitterDateEnabled: Boolean = true

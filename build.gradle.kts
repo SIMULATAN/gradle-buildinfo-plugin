@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.github.simulatan"
-version = "2.3.0"
+version = "2.3.1"
 
 java {
     targetCompatibility = JavaVersion.VERSION_1_8
