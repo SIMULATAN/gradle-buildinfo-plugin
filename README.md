@@ -29,4 +29,5 @@ plugins {
 The plugin adds a `buildInfo` task to your project. This task is automatically added as a dependency to the `jar` task.
 
 ### Configuration
-The plugin adds an extension named `buildInfo` to your project which is used to configure the plugin. The settings available are listed in [BuildInfoExtension.kt](src/main/kotlin/io/github/simulatan/gradle/plugin/buildinfo/BuildInfoExtension.kt).
+The plugin adds an extension named `buildInfo` to your project which is used to configure the plugin. The settings available are listed in 
+[BuildInfoExtension.kt](src/main/kotlin/io/github/simulatan/gradle/plugin/buildinfo/configuration/BuildInfoExtension.kt).
