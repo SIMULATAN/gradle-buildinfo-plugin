@@ -12,14 +12,14 @@ However, this isn't just an up-to-date version of the original plugin, in the fu
 ### Groovy
 ```groovy
 plugins {
-  id "io.github.simulatan.gradle-buildinfo-plugin" version "v1.0.0"
+  id "io.github.simulatan.gradle-buildinfo-plugin" version "2.3.1"
 }
 ```
 
 ### Kotlin
 ```kotlin
 plugins {
-  id("io.github.simulatan.gradle-buildinfo-plugin") version "v1.0.0"
+  id("io.github.simulatan.gradle-buildinfo-plugin") version "2.3.1"
 }
 ```
 
